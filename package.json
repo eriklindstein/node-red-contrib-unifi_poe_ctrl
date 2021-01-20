@@ -1,0 +1,28 @@
+{
+  "name": "red-contrib-unifi_poe_ctrl",
+  "version": "1.0.0",
+  "description": "Control PoE ports on Unifi switches via ssh.",
+  "main": "unifi_poe_ctrl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/eriklindstein/node-red-contrib-unifi_poe_ctrl.git"
+  },
+  "keywords": [
+    "unifi",
+    "poe",
+    "ssh"
+  ],
+  "author": "Erik Lindstein",
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "unifi_poe_ctrl": "unifi_poe_ctrl.js"
+    }
+  },
+  "dependencies": {
+    "ssh2shell": "^1.9.4"
+  }
+}

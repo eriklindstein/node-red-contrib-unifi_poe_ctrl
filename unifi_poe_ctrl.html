@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    RED.nodes.registerType('unifi_poe_ctrl',{
+        category: 'function',
+        color: '#3FADB5',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "light.svg",
+        label: function() {
+            return this.name||"unifi_poe_ctrl";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="unifi_poe_ctrl">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="unifi_poe_ctrl">
+    <p>A node to control the PoE output and read interface status of unifi switches via SSH (no need for unifi controller)</p>
+
+    <h3>Input</h3>
+    <p>The <code>msg.payload</code> should be an object that contains:</p>
+    <ul>
+        <li><code>cmd</code> - reboot | shutdown | auto | status (default: "status")</li>
+        <li><code>host</code> - host/ip of unifi switch</li>
+        <li><code>port</code> - ssh port (default: 22)</li>  
+        <li><code>username</code> - ssh username (default: "ubnt")</li>
+        <li><code>password</code> - ssh password (default: "ubnt")</li>  
+    </ul>
+    <h3>Output</h3>
+    <p>The <code>msg.payload</code> - object contains:</p>
+    <ul>
+        <li><code>payload.response</code> - complete response for unifi ssh session</li>
+    </ul>
+    <p>Only for <code>msg.payload.cmd</code> = "status"</p>
+    <ul>
+        <li><code>payload.status.interface</code> - Interface used</li>
+        <li><code>payload.status.detection</code> - Detection status</li>
+        <li><code>payload.status.class</code> - PoE class</li>
+        <li><code>payload.status.consumed_W</code> - Interface consumes(W)</li>
+        <li><code>payload.status.volage</code> - Interface voltage</li>
+        <li><code>payload.status.current_mA</code> - Interface current(mA)</li>
+    </ul>
+
+</script>
