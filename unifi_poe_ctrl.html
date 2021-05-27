@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('unifi_poe_ctrl',{
-        category: 'function',
+        category: 'Unifi PoE Switch',
         color: '#3FADB5',
         defaults: {
             name: {value:""}
@@ -8,8 +8,9 @@
         inputs:1,
         outputs:1,
         icon: "light.svg",
+        paletteLabel: "Unifi PoE Ctrl",
         label: function() {
-            return this.name||"unifi_poe_ctrl";
+            return this.name||"Unifi PoE Ctrl";
         }
     });
 </script>
